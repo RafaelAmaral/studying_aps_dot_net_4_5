@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0C169D7B-43FA-4180-973C-86798DC8B072}</ProjectGuid>
+    <ProjectGuid>{A2F2EDC3-D581-4960-B864-C1EC1724CE1F}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BookService</RootNamespace>
-    <AssemblyName>BookService</AssemblyName>
+    <RootNamespace>StudingEntityFramework</RootNamespace>
+    <AssemblyName>StudingEntityFramework</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -164,22 +164,30 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AnotherModelsController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611101413481_Initial.cs" />
-    <Compile Include="Migrations\201611101413481_Initial.Designer.cs">
-      <DependentUpon>201611101413481_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201611161146412_Initial.cs" />
+    <Compile Include="Migrations\201611161146412_Initial.Designer.cs">
+      <DependentUpon>201611161146412_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611161154354_AddAuthorAge.cs" />
+    <Compile Include="Migrations\201611161154354_AddAuthorAge.Designer.cs">
+      <DependentUpon>201611161154354_AddAuthorAge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611161205113_AddAnotherModel.cs" />
+    <Compile Include="Migrations\201611161205113_AddAnotherModel.Designer.cs">
+      <DependentUpon>201611161205113_AddAnotherModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AnotherModel.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\BookDetailDTO.cs" />
-    <Compile Include="Models\BookDTO.cs" />
-    <Compile Include="Models\BookServiceContext.cs" />
+    <Compile Include="Models\StudingEntityFrameworkContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,7 +197,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -214,8 +221,6 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\knockout-3.4.0.debug.js" />
-    <Content Include="Scripts\knockout-3.4.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -236,8 +241,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611101413481_Initial.resx">
-      <DependentUpon>201611101413481_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611161146412_Initial.resx">
+      <DependentUpon>201611161146412_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611161154354_AddAuthorAge.resx">
+      <DependentUpon>201611161154354_AddAuthorAge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611161205113_AddAnotherModel.resx">
+      <DependentUpon>201611161205113_AddAnotherModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -264,9 +275,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59719</DevelopmentServerPort>
+          <DevelopmentServerPort>55010</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59719/</IISUrl>
+          <IISUrl>http://localhost:55010/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
