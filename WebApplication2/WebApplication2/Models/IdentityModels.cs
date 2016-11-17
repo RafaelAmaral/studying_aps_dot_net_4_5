@@ -3,10 +3,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
 
-namespace WebApplication1.Models
+namespace WebApplication2.Models
 {
-    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+    // You can add profile data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class User : IdentityUser
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager, string authenticationType)
@@ -25,13 +26,20 @@ namespace WebApplication1.Models
         {
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder); // This needs to go before the other rules!
+
+            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<IdentityRole>().ToTable("Role");
+            modelBuilder.Entity<IdentityUserRole>().ToTable("UserRole");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaim");
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogin");
+        }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<Author> Authors { get; set; }
-
-        public System.Data.Entity.DbSet<Book> Books { get; set; }
     }
 }
