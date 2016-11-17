@@ -11,12 +11,14 @@ namespace WebApplication2.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
+        [Authorize(Roles = "Manager")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
+        [Authorize(Roles = "Employee")]
         public string Get(int id)
         {
             return "value";

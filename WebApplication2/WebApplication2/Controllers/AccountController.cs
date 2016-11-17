@@ -337,6 +337,8 @@ namespace WebApplication2.Controllers
                 return GetErrorResult(result);
             }
 
+            UserManager.AddToRole(user.Id, "Employee");
+
             return Ok();
         }
 
