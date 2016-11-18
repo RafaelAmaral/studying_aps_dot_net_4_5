@@ -319,7 +319,7 @@ namespace WebApplication2.Controllers
         }
 
         // POST api/Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "Manager")]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
@@ -337,7 +337,7 @@ namespace WebApplication2.Controllers
                 return GetErrorResult(result);
             }
 
-            UserManager.AddToRole(user.Id, "Employee");
+            UserManager.AddToRole(user.Id, "Manager");
 
             return Ok();
         }
