@@ -37,8 +37,9 @@ namespace WebApplication2
             {
                 TokenEndpointPath = new PathString("/Token"),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
+                RefreshTokenProvider = new SimpleRefreshTokenProvider(),
                 AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(2),
                 // In production mode set AllowInsecureHttp = false
                 AllowInsecureHttp = true
             };

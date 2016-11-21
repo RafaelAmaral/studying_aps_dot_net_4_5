@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using System.Data.Entity;
+using WebApplication2.Entities;
 
 namespace WebApplication2.Models
 {
@@ -41,5 +42,8 @@ namespace WebApplication2.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
     }
 }
